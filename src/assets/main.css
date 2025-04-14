@@ -1,1 +1,80 @@
 @import './base.css';
+@import './quasar-mod.css';
+
+/*
+
+--color-background
+--color-background-soft
+--color-background-mute
+--color-border
+--color-border-hover
+--color-heading
+--color-text
+
+*/
+body {
+	scrollbar-color: rgba(128, 128, 128, 0.86) var(--color-background);
+	scrollbar-width: thin;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+	-webkit-appearance: none; 
+	margin: 0; 
+}
+
+textarea {
+	max-height: 180px;
+}
+h1 {
+	font-size: 3rem;
+	line-height: 3rem;
+}
+
+h2 {
+	font-size: 2.5rem;
+	line-height: 2.5rem;
+}
+
+h3 {
+	font-size: 2rem;
+	line-height: 2rem;
+}
+
+h4 {
+	font-size: 1.5rem;
+	line-height: 1.5rem;
+}
+
+h5 {
+	font-size: 1.25rem;
+	line-height: 1.25rem;
+}
+
+h1, h2, h3, h4, h5 {
+	color: var(--color-heading);
+}
+
+.bgd {
+	background: var(--color-background);
+}
+
+.bgd-soft {
+	background: var(--color-background-soft);
+}
+
+.bgd-mute {
+	background: var(--color-background-mute);
+}
+
+.txt-heading {
+	color: var(--color-heading);
+}
+
+.txt {
+	color: var(--color-text);
+}
+
+.txt-soft {
+	color: rgba(128, 128, 128, 0.86);
+}
