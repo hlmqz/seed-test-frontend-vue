@@ -23,7 +23,7 @@
 			</q-toolbar>
 		</q-header>
 
-		<q-page-container class="window-height" :class="[$route.meta.fitView ? 'row justify-center' : '']">
+		<q-page-container class="window-height q-pa-md" :class="[$route.meta.fitView ? 'row justify-center' : '']">
 			<router-view :class="[($route.meta.fitView ? 'col-12 col-md-8 col-lg-6' : '')]"/>
 		</q-page-container>
 		<dialog-error />
