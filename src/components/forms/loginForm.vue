@@ -82,8 +82,8 @@ export default {
 
 			if(this.server.session)
 				this.$router.push({name: 'dashboard'});
-			else
-				this.inSend = false;
+
+			this.inSend = false;
 		},
 		onReset(){
 
