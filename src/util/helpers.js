@@ -47,3 +47,31 @@ export function compareRecursive(o1, o2){
 		return o1 == o2;
 	}
 }
+
+
+export function organizeErrors(data, prefix=''){
+	let errs = [];
+
+	if(Array.isArray(data)){
+		errs.push({key: prefix, type: 'array', val:''});
+		data.forEach(value => errs = errs.concat(organizeErrors(value)));
+	}
+	else if(typeof data == 'object' && data)
+		for(let property in data){
+			 errs = errs.concat(organizeErrors(data[property], property));
+	}
+
+	let val = undefined;
+
+
+	if(['string', 'number', 'boolean'].includes(typeof data)){
+
+		errs.push({
+			key: prefix,
+			val: (typeof data == 'boolean' ? (data ? 'TRUE' : 'FALSE') : `${data}`),
+			type: Array.isArray(data) ? 'array' : typeof data,
+		});
+	}
+
+	return errs;
+}
