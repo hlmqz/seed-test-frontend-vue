@@ -71,9 +71,8 @@ export default {
 			return Boolean(this.server.error);
 		},
 		info(){
-					let icon = '', color = '', message = 'Error';
-
-					let content = '';
+					let icon = '', color = 'negative', message = 'Error';
+					let content = 'Ups, algo falló!';
 
 					if(this.server.error?.data?.message)
 						content = this.server.error.data.message;

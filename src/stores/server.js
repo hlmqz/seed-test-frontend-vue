@@ -24,8 +24,16 @@ export default defineStore('serverStore', {
 			}
 			catch(err){
 				this.sending.delete(uuid);
-				if(this.dialog)
-					this.error = err.response;
+				if(this.dialog){
+
+					this.error = err?.response
+							? err.response
+							: {
+									data:{
+									code: err.code,
+									messsage: err.message,
+								}};
+				}
 
 				this.dialog = true;
 				return null;
