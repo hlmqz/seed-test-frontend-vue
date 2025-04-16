@@ -1,29 +1,33 @@
-# vue-frontend
 
-This template should help get you started developing with Vue 3 in Vite.
+# Prueba Técnica
 
-## Recommended IDE Setup
+Repositorio realizado como prueba técnica para Seed EM.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Ejercicio
 
-## Customize configuration
+### Ejercicio Frontend en Vue.js
+**Objetivos:**
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- Crear una pequeña SPA conectada a la API de Laravel.
+- Crear un formulario de autenticación con Vue.
+- Listar los productos desde la API con Axios.
+- Permitir crear un nuevo producto usando un formulario.
+- Validación de campos obligatorios en frontend.
 
-## Project Setup
+## Requerimientos de implementación
 
-```sh
-npm install
-```
+- Node.js versión 22.x 
 
-### Compile and Hot-Reload for Development
+## Instrucciones de Instalación
 
-```sh
-npm run dev
-```
+- clonar el repositorio.
+- las siguientes instrucciones se realizan en el directorio del proyecto.
+- copiar el archivo `.env.example` en el archivo `.env` y reemplazar el valor correspondiente a la URL de la API.
+- ejecutar el comando `npm install` para instalar dependencias.
+- servir el aplicativo según requerimiento, a desarrollo o producción.
+- ejecutar el comando `npm run dev` para pruebas o desarrollo.
+- ejecutar el comando `npm run build` para compilar a producción, generando un directorio `dist`,
+el cual debe recibir las petciones del servidor.
+- el servidor debe estar habilitado para URL amigables.
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+Fin.
