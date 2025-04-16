@@ -20,6 +20,10 @@ export default defineStore('serverStore', {
 				let response = await requester.request(options);
 				this.sending.delete(uuid);
 				this.dialog = true;
+
+				if(this.session?.user)
+					this.session.loadedtime = new Date().getTime();
+
 				return response.data;
 			}
 			catch(err){
@@ -61,14 +65,29 @@ export default defineStore('serverStore', {
 
 		async loadSession(){
 			this.dialog = false;
-			let session = await this.get('/api/login');
-			this.session = session?.user ? session : null;
+			this.session = await this.get('/api/login');
+			if(this.session?.user)
+				this.session.loadedtime = new Date().getTime();
 		},
 
 		async closeSession(){
 			this.dialog = false;
 			await this.delete('/api/login');
 			this.session = null;
+		},
+
+		async validateTimeSession(reload = true){
+			if(!this.session)
+				return false;
+
+			if(new Date().getTime() - this.session.loadedtime > this.session.lifetime){
+				await this.loadSession();
+				if(reload)
+					return await this.validateTimeSession(false);
+				else
+					return false;
+			}
+			return true;
 		}
 	}
 });

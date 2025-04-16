@@ -29,12 +29,13 @@ const router = createRouter({
 router.beforeEach( async (to, from) => {
 
 	const server = serverStore();
-	await server.loadSession();
 
-	if(to.meta?.requireUser && !server.session)
+	let timeOk = await server.validateTimeSession();
+
+	if(to.meta?.requireUser && !timeOk)
 			return {name: 'login'};
 
-	if(to.name == 'login' && server.session)
+	if(to.name == 'login' && timeOk)
 		return {name: 'dashboard'};
 
 });
