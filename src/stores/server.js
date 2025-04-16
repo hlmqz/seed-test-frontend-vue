@@ -77,16 +77,16 @@ export default defineStore('serverStore', {
 		},
 
 		async validateTimeSession(reload = true){
-			if(!this.session)
-				return false;
 
-			if(new Date().getTime() - this.session.loadedtime > this.session.lifetime){
-				await this.loadSession();
-				if(reload)
+			if(!this.session || new Date().getTime() - this.session.loadedtime > this.session.lifetime){
+				if(reload){
+					await this.loadSession();
 					return await this.validateTimeSession(false);
+				}
 				else
 					return false;
 			}
+
 			return true;
 		}
 	}
